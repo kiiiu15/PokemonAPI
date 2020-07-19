@@ -5,4 +5,4 @@ from .models import Pokemon
 class PokemonSerializer(ModelSerializer):
     class Meta:
         model = Pokemon
-        fields = ['__all__']
+        fields = '__all__'

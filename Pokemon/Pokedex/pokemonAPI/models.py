@@ -5,6 +5,7 @@ from django.db import models
 
 
 class Pokemon(models.Model):
+    name = models.CharField(max_length=30, default='No name')
     typePokemon = models.CharField(max_length=30, default='No type')
     level = models.IntegerField(default=1)
     atack = models.IntegerField(default=1)
