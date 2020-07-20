@@ -1,5 +1,5 @@
 from django.db import models
-
+import json
 
 
 # Create your models here.
@@ -13,11 +13,14 @@ class Pokemon(models.Model):
     defense = models.IntegerField(default=1)
     health = models.IntegerField(default=100)
 
-    def __str__(self):
 
+
+    def __str__(self):
         return '{"name" : "%s" ,' \
                ' "typePokemon" : "%s" ,' \
                ' "level" : %d ,' \
                ' "atack" : %d,' \
                ' "defense" : %d,' \
                '"health" : %d}' % (self.name, self.typePokemon, self.level, self.atack, self.defense, self.health)
+
+
