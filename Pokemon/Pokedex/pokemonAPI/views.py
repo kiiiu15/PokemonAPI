@@ -1,8 +1,7 @@
-from django.shortcuts import render
-from .models import Pokemon
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
 from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView
+
+from .models import Pokemon
 from .serializers import PokemonSerializer
 
 
@@ -15,7 +14,8 @@ class PokemonList(ListCreateAPIView):
         return Pokemon.objects.all()
 
 
-# @api_view()
-# def index(request):
-#     pokemon_list = Pokemon.objects.all()
-#     return Response(pokemon_list)
+class PokemonDetail(RetrieveUpdateDestroyAPIView):
+    serializer_class = PokemonSerializer
+
+    def get_queryset(self):
+        return Pokemon.objects.all()
